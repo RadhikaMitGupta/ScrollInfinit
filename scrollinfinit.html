@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            height:auto;
+            width: 500px;
+            border: 15px solid maroon;
+            text-align: center;
+           margin-left: 300px;
+            
+        }
+    </style>
+</head>
+<body>
+     
+        <div class="container"></div>
+     
+</body>
+</html>
+<script>
+    let container = document.querySelector('.container');
+ 
+window.addEventListener('scroll', function(){
+  setTimeout(() => {
+    loadMoreList(200);
+  }, 1500);
+});
+
+loadMoreList(200);  
+
+function loadMoreList(num) {
+  let scrollY = window.scrollY;
+  let innerHeight = window.innerHeight;
+  let offsetHeight = document.body.offsetHeight;
+  
+  if (scrollY + innerHeight > offsetHeight - 100) {
+    let item = 1;
+     
+    
+    for (var i = 0; i < num; i++) {
+      let li = document.createElement('p');
+      li.innerText = 'Masai Student ' + item++;
+
+      container.appendChild(li);
+      
+    }
+  }
+}
+</script>
